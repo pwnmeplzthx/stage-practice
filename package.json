@@ -10,6 +10,7 @@
     "prettier": "prettier -w .",
     "lint:ts": "npx eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:types": "tsc —noEmit",
     "test": "npx jest",
     "test:gen": "npx playwright codegen",
     "test:pw": "npx playwright test "

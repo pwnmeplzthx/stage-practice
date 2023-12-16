@@ -1,4 +1,4 @@
-## Настройка Jest
+## Настройка Jest и Playwright
 
 1. Дока по настройке jest для next https://nextjs.org/docs/pages/building-your-application/optimizing/testing#setting-up-jest-with-the-rust-compiler
 
