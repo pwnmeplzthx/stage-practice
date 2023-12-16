@@ -29,51 +29,51 @@ Installing NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
 —Run app on server
-	npm run build
-	npm start
+    npm run build
+    npm start
 
 —Запуск процесса в фоне
-	npx pm2 start nom —name next —start
-	Старт при запуске системы
-	npx pm2 startup
-	Выполнить команду, которую он пришлет
+    npx pm2 start nom —name next —start
+    Старт при запуске системы
+    npx pm2 startup
+    Выполнить команду, которую он пришлет
 
 Firewall installing
-	sudo apt-get install ufw
+    sudo apt-get install ufw
 —Firewall status
-	sudo ufw status verbose
+    sudo ufw status verbose
 —Settings ufw
-	sudo ufw allow ssh
-	sudo ufw allow http
-	sudo ufw allow https
+    sudo ufw allow ssh
+    sudo ufw allow http
+    sudo ufw allow https
 —Enable firewall
-	sudo ufw enable
+    sudo ufw enable
 
 Проектирование запросов
 (Файрвол не пропускает на порты)
 Nginx installing
-	sudo apt install nginx
+    sudo apt install nginx
 —Enable nginx (запуск при запуске машины)
-	sudo systemctl is-enabled nginx
+    sudo systemctl is-enabled nginx
 —Settings nginx
-	cd /etc/nginx
-	sudo nano nginx.conf
+    cd /etc/nginx
+    sudo nano nginx.conf
 —Ссылки на конфигурационные файлы
-	Тут хранятся ссылки (можно удалять)
-	cd /sites-enabled
-	Тут хранятся конфигурации
-	cd /sites-available
-	Удаляем дефолтную конфигурацию	Создаем
-	sudo nano /etc/nginx/sites-available/serverIpOrDomain.conf
-	
+    Тут хранятся ссылки (можно удалять)
+    cd /sites-enabled
+    Тут хранятся конфигурации
+    cd /sites-available
+    Удаляем дефолтную конфигурацию  Создаем
+    sudo nano /etc/nginx/sites-available/serverIpOrDomain.conf
+    
 server { 
-	server_name app.micro-courses.ru; 
+    server_name app.micro-courses.ru; 
 
-	location / { 
-		include proxy_params; 
-		proxy_pass http://127.0.0.1:3000; 
-	} 
-	listen 80; 
+    location / { 
+        include proxy_params; 
+        proxy_pass http://127.0.0.1:3000; 
+    } 
+    listen 80; 
 }
 Без домена
 server {
@@ -89,13 +89,13 @@ server {
 }
 
 
-	Делаем ссылку в sites-enabled
-	sudo ln -s /etc/nginx/sites-available/82.97.244.86.conf /etc/nginx/sites-enabled/
+    Делаем ссылку в sites-enabled
+    sudo ln -s /etc/nginx/sites-available/82.97.244.86.conf /etc/nginx/sites-enabled/
 
 —Nginx test config
-	sudo nginx -t
+    sudo nginx -t
 —Nginx reboot
-	sudo nginx -s reload
+    sudo nginx -s reload
 
 HTTPS
 sudo apt install certbot python3-certbot-nginx
@@ -103,5 +103,6 @@ sudo certbot --nginx -d staging-cms.ru
 sudo systemctl status certbot.timer - проверить планировщик обновлений certbot renew --dry-run - проверить обновление
 
 
-	
+    
+
 
