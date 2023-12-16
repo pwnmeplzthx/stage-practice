@@ -37,6 +37,8 @@ Installing NVM\
     Старт при запуске системы\
     ```npx pm2 startup```\
     Выполнить команду, которую он пришлет\
+--Перезапуск pm2\
+    ```npx pm2 reload all```
 
 Firewall installing\
     ```sudo apt-get install ufw```\

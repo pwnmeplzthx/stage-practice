@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Запуск проекта
 
-## Getting Started
-
-First, run the development server:
-
-```bash
+```
+npm ci - устанавливаем зависимости (игнорируя проверку версий)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+----
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Скрипты
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `npm run dev` - Запуск проекта
+- `npm run build` - Сборка проекта
+- `npm run lint:ts` - Проверка ts файлов линтером
+- `npm run lint:ts:fix` - Исправление ts файлов линтером
+- `npm run prettier` - Исправление prettier
+- `npm run test:unit` - Запуск unit тестов с jest
+- `npm run test:gen` - Генерация тестов с помощью playwright
+- `npm run test:pw` - Запуск тестов с помощью playwright
 
-## Learn More
+----
 
-To learn more about Next.js, take a look at the following resources:
+## Архитектура проекта
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Проект написан в соответствии с методологией Feature sliced design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Ссылка на документацию - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
-## Deploy on Vercel
+----
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Тесты
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+В проекте используются 2 вида тестов:
+1) Обычные unit тесты на jest - `npm run test:unit`
+2) Генерация тестов с playwright - `npm run test:gen`
+3) e2e тестирование с playwright - `npm run test:pw`
+
+----
+
+## Документация
+
+Подробнее по развертыванию - [развертывание](/docs)
+
+----
