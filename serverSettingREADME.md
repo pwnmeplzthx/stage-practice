@@ -1,26 +1,30 @@
 ServerShop
 https://timeweb.cloud
+1. Подключаемся к серверу к пользователю root по паролю
 
-Server Commands
-—Adding users
-	adduser admin
-	usermod -aG sudo admin
-—Delete root user
-	sudo nano /etc/ssh/sshd_config
-	PermitRootLogin no
-	PasswordAuthentication no
-—Reboot server
-	sudo systemctl restart ssh
-—Server status
-	sudo systemctl status ssh
+    —Adding users
+        adduser admin
+        usermod -aG sudo admin
+    —Reboot server
+        sudo systemctl restart ssh
+    —Server status
+        sudo systemctl status ssh
 
+2. Отключаемся от сервера и копируем публичный ключ на сервер
+    SSH
+    —Copy key to server
+        ssh-copy-id admin@serverIp/domain
+    —Check ssh key
+        cat .ssh/id_rsa.pub
 
-SSH
-—Copy key to server
-	ssh-copy-id admin@serverIp/domain
-—Check ssh key
-	cat .ssh/id_rsa.pub
+3. Отключаем доступ к root пользователю и аутентификацию по паролю
+    —Delete root user
+        sudo nano /etc/ssh/sshd_config
+        -> PermitRootLogin no
+        -> PasswordAuthentication no
 
+4. генерируем ключ, добавляем в гит, клонируем репозиторий
+5. Устанавливаем nvm
 Installing NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
@@ -92,6 +96,12 @@ server {
 	sudo nginx -t
 —Nginx reboot
 	sudo nginx -s reload
+
+HTTPS
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d staging-cms.ru 
+sudo systemctl status certbot.timer - проверить планировщик обновлений certbot renew --dry-run - проверить обновление
+
 
 	
 
