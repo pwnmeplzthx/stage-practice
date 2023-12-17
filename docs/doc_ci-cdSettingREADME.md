@@ -82,6 +82,7 @@ jobs:
 
 7. Добавляем скрипт deploy.sh в ~\
 ```cd ./stage-practice
+npx pm2 stop all
 git pull
 npm ci
 npx prisma generate

@@ -32,7 +32,7 @@ npm run dev
 
 В проекте используются 2 вида тестов:
 1) Обычные unit тесты на jest - `npm run test:unit`
-2) Генерация тестов с playwright - `npm run test:gen`
+2) Генерация e2e тестов с playwright - `npm run test:gen`
 3) e2e тестирование с playwright - `npm run test:pw`
 
 ----
