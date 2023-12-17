@@ -79,3 +79,17 @@ jobs:
 6. Получаем finger print для сервера (Нужно сначала выйти с сервера)
 ```ssh-keyscan -H staging-cms.ru -p 22```\
 Копируем полностью последнюю строку начинающуюся с |1| и добавляем в STAGING_SSH_FINGERPRINT\
+
+7. Добавляем скрипт deploy.sh в ~\
+```cd ./core
+git pull
+npm ci
+npx prisma migrate deploy
+npm run build
+npx pm2 reload all```
+
+8. даём право на выполнение скрипта\
++x - право на выполнение\
+```chmod +x ~/deploy.sh```\
+
+8. Добавляем в deploy-staging.yml запуск e2e тестов. В поле jobs:\
