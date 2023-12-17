@@ -81,7 +81,7 @@ jobs:
 Копируем полностью последнюю строку начинающуюся с |1| и добавляем в STAGING_SSH_FINGERPRINT\
 
 7. Добавляем скрипт deploy.sh в ~\
-```cd ./core
+```cd ./stage-practice
 git pull
 npm ci
 npx prisma generate
