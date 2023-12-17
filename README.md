@@ -2,6 +2,8 @@
 
 ```
 npm ci - устанавливаем зависимости (игнорируя проверку версий)
+docker compose up - разворачиваем бд в докере
+npx prisma migrate deploy - миграция бд
 npm run dev
 ```
 
