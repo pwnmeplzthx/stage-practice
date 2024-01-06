@@ -37,3 +37,10 @@ volumes:
 
 ```npx prisma migrate deploy```\
 
+Создание бд\
+```sudo npx prisma db push```\
+```sudo npx prisma generate```
+
+сброс данных\
+```sudo npx prisma migrate reset -> sudo npx prisma db push```\
+

@@ -26,6 +26,9 @@ https://timeweb.cloud
         -> PasswordAuthentication no\
 
 4. генерируем ключ, добавляем в гит, клонируем репозиторий
+    ```ssh-keygen```
+    Выводим файл с публичным ключем, и добавляем в гит в deploy keys (settings -> deploy keys)
+    ```cat ~/.ssh/id_rsa.pub```
 5. Устанавливаем nvm
 Installing NVM\
 ```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash```\
@@ -35,7 +38,7 @@ Installing NVM\
     ```npm start```\
 
 —Запуск процесса в фоне\
-    ```npx pm2 start nom —name next —start```\
+    ```npx pm2 start npm —-name next —- start```\
     Старт при запуске системы\
     ```npx pm2 startup```\
     Выполнить команду, которую он пришлет\
@@ -66,14 +69,14 @@ Nginx installing\
     ```sudo nano nginx.conf```\
 —Ссылки на конфигурационные файлы\
     Тут хранятся ссылки (можно удалять)\
-    ```cd /sites-enabled```\
+    ```cd sites-enabled```\
     Тут хранятся конфигурации\
-    ```cd /sites-available```\
+    ```cd sites-available```\
     Удаляем дефолтную конфигурацию  Создаем\
     ```sudo nano /etc/nginx/sites-available/serverIpOrDomain.conf```\
 ```
 server { 
-    server_name app.micro-courses.ru; 
+    server_name staging-cms.ru; 
 
     location / { 
         include proxy_params; 
@@ -111,6 +114,22 @@ HTTPS\
 ```sudo certbot --nginx -d staging-cms.ru```\
 ```sudo systemctl status certbot.timer``` - проверить планировщик обновлений\ 
 ```certbot renew --dry-run``` - проверить обновление\
+
+
+Для раздачи статики (для приложения реакт)\
+```
+server {
+        listen 80;
+        listen [::]:80;
+        root /var/www/domainName;
+        index index.html;
+        server_name domainName;
+        location / {
+                try_files $uri /index.html;
+        }
+}
+```
+Копируем содержимое папки dist после билда в /home/username/var/www/domainName
 
 
     
